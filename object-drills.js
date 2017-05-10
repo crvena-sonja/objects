@@ -38,24 +38,35 @@ console.log(stuff.meals[3]);
 
 const person1 = {
 	name: "Avi",
-	title: "glorius bunbun"
+	title: "Glorius Bunbun"
 }
 
 const person2 = {
 	name: "Sonja",
-	title: "fabulous reader"
+	title: "Fabulous Reader",
+	boss: "Avi"
 }
 
 const person3 = {
 	name: "Wednesday",
-	title: "snarkiest of all"
+	title: "Snarkiest of All",
+	boss: "Avi"
 }
 
 const array = [person1, person2, person3];
 
-array.forEach(each => console.log(each));
+array.forEach(each => console.log(each.name + ": " + each.title));
 
 //DRILL 5
+
+array.forEach(function(each){
+	if(!each.boss){
+		console.log(`${each.title} ${each.name} doesn't report to anybody.`);
+	} else{
+		console.log(`${each.title} ${each.name} reports to ${each.boss}.`);
+	} 
+});
+
 
 
 //DRILL 6
