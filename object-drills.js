@@ -26,9 +26,34 @@ for (let key in object){
 
 //DRILL 3
 
+const stuff = {
+	meals: ['breakfast', 'second breakfast', 'elevenses', 
+	'lunch', 'afternoon tea', 'dinner', 'supper']
+}
+
+console.log(stuff.meals[3]);
+
 
 //DRILL 4
 
+const person1 = {
+	name: "Avi",
+	title: "glorius bunbun"
+}
+
+const person2 = {
+	name: "Sonja",
+	title: "fabulous reader"
+}
+
+const person3 = {
+	name: "Wednesday",
+	title: "snarkiest of all"
+}
+
+const array = [person1, person2, person3];
+
+array.forEach(each => console.log(each));
 
 //DRILL 5
 
