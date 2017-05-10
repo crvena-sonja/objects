@@ -71,7 +71,7 @@ array.forEach(function(each){
 
 //DRILL 6
 
-/*function decode(secret){
+function decode(secret){
     let code = secret.charAt(0);
     if (code=='a'){
       console.log(secret.charAt(1));
@@ -94,7 +94,7 @@ function decodeSentence(sentence) {
     sentence = sentence.split(" ");
     
    return sentence.map(decode).join('');
-}*/
+}
 const code = {
 	a: 2,
 	b: 3,
@@ -141,12 +141,41 @@ console.log(decode("craft block argon meter bells brown croon droop", code));
 
 //DRILL 7
 
-function createCharacter(name, nickname, race, origin, attack, defense){
+function createCharacter(name, nickname, race, weapon, origin, attack, defense){
 	return {
-		name, nickname, race, origin, attack, defense,
+		name, nickname, race, weapon, origin, attack, defense,
 		describe: function(){
-			console.log(`${name} is a ${race} from ${origin}`);
-		}
-		evaluateFight: 
+			console.log(`${this.name} is a ${this.race} from ${this.origin} who uses ${this.weapon}.`);
+		},
+		evaluateFight: function(character){
+			const charAttack = character.attack - this.defense;
+			const myAttack = this.attack - character.defense;
+			if(charAttack < 0){ charAttack = 0;}
+			if(myAttack < 0){ myAttack = 0;}
+			console.log(`Your opponent takes ${charAttack} damage and you receive ${myAttack} damage.`);
+		},
+
 	};
 }
+
+const characters = [createCharacter("Gandalf the White", "gandalf", "Wizard", "a wizard staff", "Middle Earth", 10, 6), 
+ createCharacter("Bilbo Baggins", "bilbo", "Hobbit", "The Ring", "The Shire", 2, 1),
+ createCharacter("Frodo Baggins", "frodo", "Hobbit", "a String and Barrow Blade", "The Shire", 3, 2),
+ createCharacter("Aragorn son of Arathorn", "aragorn","Man", "Anduril", "Dunnedain", 6, 8),
+ createCharacter("Legolas", "legolas", "Elf", "a Bow and Arrow","Woodland Realm", 8, 5)];
+
+ console.log(characters);
+
+ characters.push(createCharacter("Arwen Undomiel", "arwen", "Half-Elf", "Hadhafang", "Rivendell", 7, 5));
+ console.log(characters);
+
+ const aragorn = (characters.find(character => character.nickname === "aragorn"));
+ console.log(aragorn);
+
+ console.log(aragorn.describe());
+
+ const hobbits = characters.filter(character => character.race === "Hobbit");
+ console.log(hobbits);
+
+ const attackers = characters.filter(character => character.attack > 5);
+ console.log(attackers);
