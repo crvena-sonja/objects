@@ -11,6 +11,18 @@ console.log(loaf.hydration());
 
 //DRILL 2
 
+const object = {
+	foo: "yes",
+	bar: "no",
+	fum: "maybe",
+	quux: "um",
+	spam: "blah"
+}
+
+for (let key in object){
+	console.log(key + " " + object[key]);
+}
+
 
 //DRILL 3
 
