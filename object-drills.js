@@ -140,3 +140,13 @@ console.log(decode("craft block argon meter bells brown croon droop", code));
 
 
 //DRILL 7
+
+function createCharacter(name, nickname, race, origin, attack, defense){
+	return {
+		name, nickname, race, origin, attack, defense,
+		describe: function(){
+			console.log(`${name} is a ${race} from ${origin}`);
+		}
+		evaluateFight: 
+	};
+}
